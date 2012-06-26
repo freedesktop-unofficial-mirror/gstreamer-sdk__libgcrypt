@@ -559,6 +559,15 @@ AC_DEFINE_UNQUOTED(NAME_OF_DEV_URANDOM, "$NAME_OF_DEV_URANDOM",
                    [defined to the name of the weaker random device])
 
 
+# Implementation of the --disable-docs switch.
+AC_MSG_CHECKING([whether to build the documentation])
+AC_ARG_ENABLE(docs,
+              AC_HELP_STRING([--disable-docs],
+                             [Disable building the documentation]),
+              builddocs=$enableval,builddocs=yes)
+AC_MSG_RESULT($builddocs)
+AM_CONDITIONAL(BUILD_DOCS, test "$builddocs" = "yes")
+
 ###############################
 #### Checks for libraries. ####
 ###############################
